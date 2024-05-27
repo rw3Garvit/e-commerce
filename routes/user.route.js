@@ -1,10 +1,8 @@
 let express = require("express");
+const { userController } = require("../controller");
 let route = express.Router();
 
-route.get("/get", (req, res) => {
-  res.status(200).json({
-    message: "user get success",
-  });
-});
+route.get("/get", userController.getUser);
+route.post("/register", userController.register);
 
 module.exports = route;
